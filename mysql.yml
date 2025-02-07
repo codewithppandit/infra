@@ -1,0 +1,18 @@
+version: '3.1'
+
+networks:
+  sahithinetwork:
+    driver: bridge
+
+services:
+  postgres:
+    build: ./postgres
+    container_name: "postgres"
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: s3cret
+      POSTGRES_MULTIPLE_DATABASES: sahithi,pavan
+    networks:
+      - sahithinetwork
